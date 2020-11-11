@@ -18,13 +18,14 @@ export function AddThoughtForm(props) {
         }
 
         if (text.length > 0) {
-            props.addThougt(thought);
+            props.addThought(thought);
+            setText('');
         }
-
-        
+    
     }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="AddThoughtForm" onSubmit={handleSubmit}>
             <input 
                 type="text"
                 aria-label="What's on your mind?"

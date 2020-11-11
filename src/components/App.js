@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { generateId, getNewExpirationTime } from '../utils/helpers';
 import { AddThoughtForm } from './AddThoughtForm';
+import { Thought } from './Thought';
 
 function App() {
     const [thoughts, setThoughts] = useState([
@@ -21,6 +22,10 @@ function App() {
     const addThought = (thought) => {
         setThoughts(prev => [thought, ...prev])
     }
+
+    const removeThought = (thoughtIdtoRemove) => {
+        setThoughts(prev => prev.filter((thought) => thought.id !== thoughtIdtoRemove))
+    }
     
   
     return (
@@ -31,9 +36,11 @@ function App() {
 
             <main>
                 <AddThoughtForm addThought={addThought} />
+                <ul className="thoughts">
+                {thoughts.map((thought) => (<Thought thought={thought} removeThought={removeThought} key={thought.id} />) )}
+                </ul>
             </main>
         </div>
-
     )    
       
 }
