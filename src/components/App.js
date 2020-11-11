@@ -30,7 +30,7 @@ function App() {
             </header>
 
             <main>
-                <AddThoughtForm />
+                <AddThoughtForm addThought={addThought} />
             </main>
         </div>
 
